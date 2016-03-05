@@ -1,0 +1,37 @@
+var onRun = function ( context ) {
+	var doc = context.document;
+	var sel = context.selection;
+	var range = NSMakeRange( 0, 1 );
+	var fontList = doc.fontList();
+	var installedFonts = fontList.numberOfFonts();
+	var AdobeBlankInstalled = false;
+
+	for ( var i = 0; i < installedFonts; i++ ) {
+		if ( 'Adobe Blank' == fontList.nameOfFontAtIndex( i )) {
+			AdobeBlankInstalled = true;
+			break;
+		}
+	}
+
+	if ( !AdobeBlankInstalled ) {
+		doc.showMessage( 'Please install the font: "Adobe Blank".' );
+		return false;
+	}
+
+	for ( var i = 0; i < sel.length(); i++ ) {
+		if ( 'MSTextLayer' == sel[i].class() ) {
+			var textLayer  = sel[i];
+			var textSize   = textLayer.fontSize();
+			var textFont   = NSFont.fontWithName_size_( "AdobeBlank", textSize );
+			var textString = textLayer.stringValue();
+			if ( ' ' != textString.substring( 0, 1 )) {
+				textString = ' ' + textString;
+			}
+			
+			textLayer.setIsEditingText( true );
+			textLayer.setStringValue( textString );
+			textLayer.addAttribute_value_forRange( NSFontAttributeName, textFont, range );
+			textLayer.setIsEditingText( false );
+		}
+	}
+}

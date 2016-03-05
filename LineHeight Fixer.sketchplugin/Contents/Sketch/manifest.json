@@ -1,0 +1,24 @@
+{
+	"author": "littlebusters",
+	"menu" : {
+		"isRoot" : true,
+		"shortcut" : "",
+		"items" : [
+			"line-height-fixer"
+		],
+		"title" : "Line-Height Fixer"
+	},
+	"identifier": "net.creative-tweet.line-height-fixer",
+	"version": "1.0.0",
+	"description" : "Improve line-height behaviour into apply Adobe Blank to the first character (for less than 3.6).",
+	"name" : "Line-Height Fixer",
+	"commands" : [
+		{
+			"name": "Line-Height Fixer",
+			"identifier": "line-height-fixer",
+			"handler" : "onRun",
+			"shortcut" : "",
+			"script": "line-height-fixer.sketchscript"
+		}
+	]
+}
