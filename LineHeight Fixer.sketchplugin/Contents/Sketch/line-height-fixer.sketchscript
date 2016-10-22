@@ -3,11 +3,11 @@ var onRun = function ( context ) {
 	var sel = context.selection;
 	var range = NSMakeRange( 0, 1 );
 	var fontList = doc.fontList();
-	var installedFonts = fontList.numberOfFonts();
+	var installedFonts = fontList.allFonts();
 	var AdobeBlankInstalled = false;
 
-	for ( var i = 0; i < installedFonts; i++ ) {
-		if ( 'Adobe Blank' == fontList.nameOfFontAtIndex( i )) {
+	for ( var i = 0; i < installedFonts.count(); i++ ) {
+		if ( 'Adobe Blank' == installedFonts[i]) {
 			AdobeBlankInstalled = true;
 			break;
 		}
@@ -18,7 +18,7 @@ var onRun = function ( context ) {
 		return false;
 	}
 
-	for ( var i = 0; i < sel.length(); i++ ) {
+	for ( var i = 0; i < sel.count(); i++ ) {
 		if ( 'MSTextLayer' == sel[i].class() ) {
 			var textLayer  = sel[i];
 			var textSize   = textLayer.fontSize();
