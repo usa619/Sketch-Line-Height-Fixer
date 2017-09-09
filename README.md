@@ -3,9 +3,9 @@ Sketch Line-Height Fixer
 
 Improve line-height behaviour into apply "Adobe Blank" to the first character.
 
-[Here, You want to use less than 3.6.][1]
-
 ## Usage
+
+Your PC require install the "Adobe Blank". Please Download and install the [Adobe Blank][3].
 
 1. Select Text Layer(s).
 1. Choose **Plugins › Line-Height Fixer**.
@@ -21,6 +21,8 @@ Sketch Line-Height Fixer（Japanese）
 テキストの最初にAdobe Blankを適用したスペースを追加し、行間問題を緩和するプラグインです。
 
 ## 使い方
+
+このプラグインを使うには、フォント「Adobe Blank」が必要です。[Adobe Blankのリポジトリからダウンロード][3]・インストールしてください。
 
 1. テキストレイヤーを選択します（複数可）。
 1. プラグインから「Line-Height Fixer」を選択します。
@@ -56,3 +58,4 @@ SOFTWARE.
 
  [1]: https://github.com/littlebusters/Sketch-Line-Height-Fixer/tree/for-sketch3.5.x
  [2]: https://github.com/littlebusters/Sketch-Line-Height-Fixer/archive/master.zip
+ [3]: https://github.com/adobe-fonts/adobe-blank
