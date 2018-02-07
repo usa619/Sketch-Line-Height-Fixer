@@ -2,6 +2,23 @@ var onRun = function ( context ) {
 	var doc = context.document;
 	var sel = context.selection;
 	var range = NSMakeRange( 0, 1 );
+	var fontList = doc.documentData().fontList();
+	fontList.reloadFonts();
+	var installedFonts = fontList.allFonts();
+	var AdobeBlankInstalled = false;
+
+	for ( var i = 0; i < installedFonts.count(); i++ ) {
+		if ( 'Adobe Blank' == installedFonts[i]) {
+			AdobeBlankInstalled = true;
+			break;
+		}
+	}
+
+	if ( !AdobeBlankInstalled ) {
+		doc.showMessage( 'Please install the font: "Adobe Blank".' );
+		return false;
+	}
+
 
 	for ( var i = 0; i < sel.count(); i++ ) {
 		if ( 'MSTextLayer' == sel[i].class() ) {
